@@ -1,0 +1,16 @@
+[
+{
+  "modid": "ETPMod",
+  "name": "Ender-Thermic Pump Mod",
+  "description": "A pump that mimics Extra Utilitie's Ender-Thermic Pump",
+  "version": "1.0",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Zandra"],
+  "credits": "Zandra, for everything.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
