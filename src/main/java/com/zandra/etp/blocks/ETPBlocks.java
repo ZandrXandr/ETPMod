@@ -10,13 +10,13 @@ public final class ETPBlocks {
     public static Block ETPBlock;
 
     public static void CreateBlocks() {
-    	RegisterBlock(ETPBlock = new ETPBlock("etpBlock"));
+    	RegisterBlock(ETPBlock = new ETPBlock("etpblock"));
     }
     
     private static Block RegisterBlock(Block block) {
     	GameRegistry.register(block);
     	GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
-    	GameRegistry.registerTileEntity(ETPTileEntity.class, "etpTileEntity");
+    	GameRegistry.registerTileEntity(ETPTileEntity.class, "etp_tile_entity");
     	return block;
     }
 }

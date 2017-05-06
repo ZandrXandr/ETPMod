@@ -4,6 +4,7 @@ import com.zandra.etp.ETPMod;
 
 import cofh.api.energy.IEnergyReceiver;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.command.ServerCommandManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -64,7 +65,6 @@ public class ETPTileEntity extends TileFluidHandler implements IFluidHandler, IT
 	
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
 		
 		if(tickPoint == 9999){
 			tickPoint = 20;
@@ -87,11 +87,11 @@ public class ETPTileEntity extends TileFluidHandler implements IFluidHandler, IT
 	}
 	
 	private void LoadCorrectChunks(){
-		if(worldObj != null && !worldObj.isRemote){		
+		if(world != null && !world.isRemote){		
 			 //Create ticket if needed
 	        if(chunkTicket == null){
 	        	ForgeChunkManager.setForcedChunkLoadingCallback(ETPMod.instance, this.LoadCallback());
-	        	chunkTicket = ForgeChunkManager.requestTicket(ETPMod.instance, worldObj, Type.NORMAL);
+	        	chunkTicket = ForgeChunkManager.requestTicket(ETPMod.instance, world, Type.NORMAL);
 	        	
 	        	if(chunkTicket == null)
 	        		return;
@@ -287,7 +287,7 @@ public class ETPTileEntity extends TileFluidHandler implements IFluidHandler, IT
 	    if (tank != null) {
 	    	doLavaShiz(false);
 	    	if(!world.isRemote)
-	    		player.addChatComponentMessage(new TextComponentString(tank.getFluidAmount() + "mb of lava buffered, " + containedRF + "RF buffered"));
+	    		player.getCommandSenderEntity().sendMessage(new TextComponentString(tank.getFluidAmount() + "mb of lava buffered, " + containedRF + "RF buffered"));
 	    	if(player.getHeldItemMainhand() != null)
 	    		if(player.getHeldItemMainhand().getItem() == Items.DIAMOND)
 	    			tickPoint = 9999;

@@ -49,7 +49,7 @@ public class ETPBlock extends Block implements ITileEntityProvider{
         world.removeTileEntity(pos);
     }
 	
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ){
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ){
 		ETPTileEntity te = (ETPTileEntity)world.getTileEntity(pos);
 		te.onBlockActivated(world, pos, state, player, side, hitX, hitY, hitZ);
 	    return true;

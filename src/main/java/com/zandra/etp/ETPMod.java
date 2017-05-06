@@ -11,7 +11,7 @@ import scala.Console;
 @Mod(modid = ETPMod.MODID, version = ETPMod.VERSION)
 public class ETPMod
 {
-    public static final String MODID = "ETPMod";
+    public static final String MODID = "etpmod";
     public static final String VERSION = "1.0";
     
     public static ETPMod instance;
